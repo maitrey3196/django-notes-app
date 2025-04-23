@@ -19,6 +19,8 @@ COPY . /app/backend/
 
 # Expose port 8000
 EXPOSE 8000
+RUN python manage.py migrate
+RUN python manage.py makemigrations
 
 # final line keeps the container alive
 CMD python /app/backend/manage.py runserver 0.0.0.0:8000
